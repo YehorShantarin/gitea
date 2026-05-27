@@ -6,7 +6,7 @@ module "eks" {
   cluster_version = "1.31"
 
   cluster_endpoint_public_access       = true
-  cluster_endpoint_public_access_cidrs = [var.my_ip]
+  cluster_endpoint_public_access_cidrs = var.my_ip
 
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.public_subnets
@@ -32,4 +32,23 @@ module "eks" {
   }
 
   enable_cluster_creator_admin_permissions = true
+}
+
+module "ebs_csi_irsa" {
+  source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
+  version = "~> 5.44"
+
+  role_name             = "k8s-test-ebs-csi"
+  attach_ebs_csi_policy = true
+
+  oidc_providers = {
+    main = {
+      provider_arn               = module.eks.oidc_provider_arn
+      namespace_service_accounts = ["kube-system:ebs-csi-controller-sa"]
+    }
+  }
+}
+
+output "ebs_csi_role_arn" {
+  value = module.ebs_csi_irsa.iam_role_arn
 }

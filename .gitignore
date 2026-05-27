@@ -4,3 +4,6 @@
 .terraform.lock.hcl
 tfplan
 terraform.tfvars
+
+# Local helm values with sensitive ARNs
+helm-values/aws-ebs-csi-driver.yaml

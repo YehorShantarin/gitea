@@ -5,3 +5,7 @@ output "cluster_name" {
 output "configure_kubectl" {
   value = "aws eks update-kubeconfig --region us-east-1 --name ${module.eks.cluster_name} --profile k8s-test"
 }
+
+output "ebs_csi_role_arn" {
+  value = module.ebs_csi_irsa.iam_role_arn
+}

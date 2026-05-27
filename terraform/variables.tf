@@ -3,6 +3,6 @@ variable "cluster_name" {
 }
 
 variable "my_ip" {
-  description = "Your IP for EKS API access"
-  type        = string
+  description = "Allowed CIDRs for EKS API access"
+  type        = list(string)
 }
