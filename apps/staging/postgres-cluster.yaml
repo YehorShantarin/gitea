@@ -1,0 +1,23 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: gitea-db
+  namespace: staging
+spec:
+  instances: 1
+
+  storage:
+    size: 1Gi
+    storageClass: gp2
+
+  bootstrap:
+    initdb:
+      database: gitea
+      owner: gitea
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      memory: 512Mi
