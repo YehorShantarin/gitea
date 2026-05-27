@@ -27,9 +27,9 @@ spec:
       enabled: false
     postgresql-ha:
       enabled: false
-    valkey:
+    redis:
       enabled: false
-    valkey-cluster:
+    redis-cluster:
       enabled: false
 
     persistence:
