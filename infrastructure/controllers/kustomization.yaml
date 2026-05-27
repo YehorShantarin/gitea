@@ -4,3 +4,4 @@ resources:
   - aws-ebs-csi-driver.yaml
   - ingress-nginx.yaml
   - metrics-server.yaml
+  - cloudnative-pg.yaml
