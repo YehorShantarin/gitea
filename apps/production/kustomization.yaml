@@ -4,3 +4,4 @@ namespace: production
 resources:
   - namespace.yaml
   - postgres-cluster.yaml
+  - gitea.yaml

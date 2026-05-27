@@ -5,3 +5,4 @@ resources:
   - ingress-nginx.yaml
   - metrics-server.yaml
   - cloudnative-pg.yaml
+  - gitea-charts.yaml
