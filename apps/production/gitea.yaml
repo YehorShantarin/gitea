@@ -21,15 +21,15 @@ spec:
     remediation:
       retries: 3
   values:
-    replicaCount: 2
+    replicaCount: 1
 
     postgresql:
       enabled: false
     postgresql-ha:
       enabled: false
-    valkey:
+    redis:
       enabled: false
-    valkey-cluster:
+    redis-cluster:
       enabled: false
 
     persistence:
