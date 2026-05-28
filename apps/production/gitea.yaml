@@ -30,6 +30,8 @@ spec:
     redis-cluster:
       enabled: true
       usePassword: false
+      persistence:
+        storageClass: gp2
 
     persistence:
       enabled: true
