@@ -58,11 +58,17 @@ spec:
     ingress:
       enabled: true
       className: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts:
-        - host: gitea.local
+        - host: gitea.shantarin.tech
           paths:
             - path: /
               pathType: Prefix
+      tls:
+        - secretName: gitea-tls
+          hosts:
+            - gitea.shantarin.tech
 
     gitea:
       admin:
@@ -86,8 +92,6 @@ spec:
           ADAPTER: redis
           HOST: redis+cluster://gitea-redis-cluster-headless:6379/0
       additionalConfigFromEnvs:
-
-      
         - name: GITEA__database__USER
           valueFrom:
             secretKeyRef:

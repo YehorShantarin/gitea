@@ -38,6 +38,7 @@ spec:
   prune: true
   dependsOn:
     - name: infra-sources
+    - name: infra-controllers
   sourceRef:
     kind: GitRepository
     name: flux-system

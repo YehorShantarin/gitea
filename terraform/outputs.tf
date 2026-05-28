@@ -16,3 +16,7 @@ output "efs_id" {
 output "efs_csi_role_arn" {
   value = module.efs_csi_irsa.iam_role_arn
 }
+
+output "cert_manager_role_arn" {
+  value = module.cert_manager_irsa.iam_role_arn
+}

@@ -7,3 +7,4 @@ resources:
   - cloudnative-pg.yaml
   - gitea-charts.yaml
   - aws-efs-csi-driver.yaml
+  - cert-manager.yaml

@@ -6,3 +6,4 @@ resources:
   - metrics-server.yaml
   - aws-efs-csi-driver.yaml
   - efs-storageclass.yaml
+  - cert-manager.yaml

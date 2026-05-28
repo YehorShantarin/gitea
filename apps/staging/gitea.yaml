@@ -45,11 +45,17 @@ spec:
     ingress:
       enabled: true
       className: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts:
-        - host: gitea.staging.local
+        - host: gitea.staging.shantarin.tech
           paths:
             - path: /
               pathType: Prefix
+      tls:
+        - secretName: gitea-staging-tls
+          hosts:
+            - gitea.staging.shantarin.tech
 
     gitea:
       admin:
