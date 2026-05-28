@@ -23,6 +23,9 @@ spec:
   values:
     replicaCount: 1
 
+    strategy:
+      type: Recreate
+
     postgresql:
       enabled: false
     postgresql-ha:
@@ -63,6 +66,8 @@ spec:
         password: changeme-staging
         email: admin@staging.local
       config:
+        server:
+          PROTOCOL: http
         database:
           DB_TYPE: postgres
           HOST: gitea-db-rw:5432
