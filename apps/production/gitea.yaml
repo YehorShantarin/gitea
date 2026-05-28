@@ -21,8 +21,6 @@ spec:
     remediation:
       retries: 3
   values:
-    replicaCount: 1
-
     postgresql:
       enabled: false
     postgresql-ha:
@@ -35,7 +33,9 @@ spec:
     persistence:
       enabled: true
       size: 20Gi
-      storageClass: gp2
+      storageClass: efs-sc
+      accessModes:
+        - ReadWriteMany
 
     resources:
       requests:
@@ -55,6 +55,11 @@ spec:
               pathType: Prefix
 
     gitea:
+      autoscaling:
+        enabled: true
+        minReplicas: 2
+        maxReplicas: 5
+        targetCPUUtilizationPercentage: 70
       admin:
         username: gitea_admin
         password: changeme-production
