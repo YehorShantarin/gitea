@@ -30,6 +30,13 @@ spec:
     redis-cluster:
       enabled: true
       usePassword: false
+      global:
+        security:
+          allowInsecureImages: true
+      image:
+        registry: docker.io
+        repository: bitnamilegacy/redis-cluster
+        tag: latest
       persistence:
         storageClass: gp2
 
@@ -79,6 +86,8 @@ spec:
           ADAPTER: redis
           HOST: redis+cluster://gitea-redis-cluster-headless:6379/0
       additionalConfigFromEnvs:
+
+      
         - name: GITEA__database__USER
           valueFrom:
             secretKeyRef:
