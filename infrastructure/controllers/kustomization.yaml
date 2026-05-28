@@ -4,3 +4,5 @@ resources:
   - aws-ebs-csi-driver.yaml
   - ingress-nginx.yaml
   - metrics-server.yaml
+  - aws-efs-csi-driver.yaml
+  - efs-storageclass.yaml

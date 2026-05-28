@@ -9,3 +9,10 @@ output "configure_kubectl" {
 output "ebs_csi_role_arn" {
   value = module.ebs_csi_irsa.iam_role_arn
 }
+output "efs_id" {
+  value = aws_efs_file_system.gitea.id
+}
+
+output "efs_csi_role_arn" {
+  value = module.efs_csi_irsa.iam_role_arn
+}
