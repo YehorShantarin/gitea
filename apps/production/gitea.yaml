@@ -28,7 +28,8 @@ spec:
     redis:
       enabled: false
     redis-cluster:
-      enabled: false
+      enabled: true
+      usePassword: false
 
     persistence:
       enabled: true
@@ -66,6 +67,15 @@ spec:
           NAME: gitea
           SCHEMA: public
           SSL_MODE: require
+        queue:
+          TYPE: redis
+          CONN_STR: redis+cluster://gitea-redis-cluster-headless:6379/0
+        session:
+          PROVIDER: redis
+          PROVIDER_CONFIG: redis+cluster://gitea-redis-cluster-headless:6379/0
+        cache:
+          ADAPTER: redis
+          HOST: redis+cluster://gitea-redis-cluster-headless:6379/0
       additionalConfigFromEnvs:
         - name: GITEA__database__USER
           valueFrom:
